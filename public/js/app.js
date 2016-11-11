@@ -1,4 +1,4 @@
-angular.module("contactsApp", ['ngRoute'])
+angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
@@ -73,6 +73,27 @@ angular.module("contactsApp", ['ngRoute'])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
     })
+    .controller("MarkerController", [ '$scope', function($scope) {
+    angular.extend($scope, {
+        osloCenter: {
+            lat: 59.91,
+            lng: 10.75,
+            zoom: 12
+        },
+        markers: {
+            osloMarker: {
+                lat: 59.91,
+                lng: 10.75,
+                message: "I want to travel here!",
+                focus: true,
+                draggable: false
+            }
+        },
+        defaults: {
+            scrollWheelZoom: false
+        }
+    });
+}]);
     .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
             $location.path("#/");

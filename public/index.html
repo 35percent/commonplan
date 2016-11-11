@@ -48,18 +48,12 @@ href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css">
 <div id="map" style="width: 1500px; height: 1000px"></div>
 <script>
 
-var map = L.map('map', {
-		center: [51.49145761385475, -0.0956583023071289],
-		zoom: 14,
-		layers: [boundary]
-	});
-
+var map = new L.Map('map').setView([51.49145761385475,-0.0956583023071289], 
+15);
 new 
 L.TileLayer('http://{s}.tiles.mapbox.com/v3/enrico-in-w.ka4k56fp/{z}/{x}/{y}.png',
   { attribution: 'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>', 
 maxZoom: 17 }).addTo(map);
-
-var boundary = new L.layerGroup();
 
    L.polygon([
 	[51.500368008689485,-0.09482145309448242],
@@ -173,7 +167,65 @@ var boundary = new L.layerGroup();
 	    color: 'black',
 	    fillColor: 'white',
 	    fillOpacity: 0.0
-	}).addTo(boundary);
+	}).addTo(map);
+
+// the following is taken from http://jsfiddle.net/kedar2a/5VLJU/8/
+
+// attaching function on map click
+map.on('click', onMapClick);
+
+
+// Script for adding marker on map click
+function onMapClick(e) {
+
+    var geojsonFeature = {
+        "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Point",
+                "coordinates": [e.latlng.lat, e.latlng.lng]
+        }
+    }
+
+    var marker;
+
+    L.geoJson(geojsonFeature, {
+        
+        pointToLayer: function(feature, latlng){
+            
+            marker = L.marker(e.latlng, {
+                
+                title: "Resource Location",
+                alt: "Resource Location",
+                riseOnHover: true,
+                draggable: true,
+
+            }).bindPopup("<input type='button' value='Delete this marker' class='marker-delete-button'/>");
+
+            marker.on("popupopen", onPopupOpen);
+       
+            return marker;
+        }
+    }).addTo(map);
+}
+
+// Function to handle delete as well as other events on marker popup open
+function onPopupOpen() {
+
+    var tempMarker = this;
+
+    //var tempMarkerGeoJSON = this.toGeoJSON();
+
+    //var lID = tempMarker._leaflet_id; // Getting Leaflet ID of this marker
+
+    // To remove marker on click of delete
+    $(".marker-delete-button:visible").click(function () {
+        map.removeLayer(tempMarker);
+    });
+}
+
+
+
 </script>
 
   </body>

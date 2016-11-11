@@ -1,5 +1,5 @@
 angular.module('contactsApp', ['leaflet-directive']);
-app.controller("MarkerController", [ '$scope', function($scope) {
+controller("MarkerController", [ '$scope', function($scope) {
     angular.extend($scope, {
         osloCenter: {
             lat: 59.91,

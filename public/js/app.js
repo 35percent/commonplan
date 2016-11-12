@@ -92,16 +92,6 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                     lat: leafEvent.latlng.lat,
                     lng: leafEvent.latlng.lng,
                     message: "My Added Marker"
-
-                $scope.saveContact = function(contact) {
-            Contacts.createContact(contact).then(function(doc) {
-                var contactUrl = "/contact/" + doc.data._id;
-                $location.path(contactUrl);
-            }, function(response) {
-                alert(response);
-            });
-        }
-
                 });
             });
         } ])

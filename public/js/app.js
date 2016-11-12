@@ -3,7 +3,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         $routeProvider
             .when("/", {
                 templateUrl: "list.html",
-                controller: "SimpleMapController",
+                controller: "MarkersEventsAddController",
                 resolve: {
                     contacts: function(Contacts) {
                         return Contacts.getContacts();
@@ -73,13 +73,28 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
     })
-    .controller("SimpleMapController", [ '$scope', function($scope) {
-    angular.extend($scope, {
-        defaults: {
-            scrollWheelZoom: false
-        }
-    });
-}]) 
+    .controller('MarkersEventsAddController', [ '$scope', function($scope) {
+            angular.extend($scope, {
+                london: {
+                    lat: 51.505,
+                    lng: -0.09,
+                    zoom: 8
+                },
+                events: {}
+            });
+
+            $scope.markers = new Array();
+
+            $scope.$on("leafletDirectiveMap.click", function(event, args){
+                var leafEvent = args.leafletEvent;
+
+                $scope.markers.push({
+                    lat: leafEvent.latlng.lat,
+                    lng: leafEvent.latlng.lng,
+                    message: "My Added Marker"
+                });
+            });
+        } ]);
     .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
             $location.path("#/");

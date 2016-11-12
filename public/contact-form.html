@@ -26,7 +26,7 @@ type="text" ng-model="contact.email" required> </p>
     </p>
     <p>
       <label>Address</label> <input id="name" class="form-control" type="text" 
-ng-model="contact.lat"> </p>
+ng-model="contact.address"> </p>
     <p>
       <label>Twitter Handle</label> 
       <input id="name" class="form-control" type="text" ng-model="contact.twitter"> 
@@ -40,3 +40,4 @@ ng-model="contact.lat"> </p>
 
     <leaflet lf-center="london" event-broadcast="events" markers="markers" 
 height="480px" width="100%"></leaflet>
+<p>Actual marker position (lat): <ng-bind="position.lat"></p>

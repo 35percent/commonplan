@@ -3,6 +3,7 @@
       <h2>Create new contact</h2>
   </div>
 </div>
+<div ng-controller="NewContactController">
 <div class="container">
   <div>
     <p>
@@ -14,8 +15,8 @@
       <input id="name" class="form-control" type="text" ng-model="contact.lastName" required> 
     </p>
     <p>
-      <label>Email (required)</label> <input id="name" class="form-control" 
-type="text" ng-model="contact.email" required> </p>
+      <label>Email (required)</label> <input id="name" ng-value="position.lat" 
+class="form-control" type="text" ng-model="contact.email" required> </p>
     <p>
       <label>Phone (Mobile)</label> 
       <input id="name" class="form-control" type="text" ng-model="contact.phone.mobile"> 
@@ -38,4 +39,15 @@ type="text" ng-model="contact.email" required> </p>
     </p>
   </div>
 </div>
+</div>
 
+<div ng-controller="MarkersSimpleController">
+    <!-- <leaflet lf-center="london" markers="markers" height="480px" 
+	 width="100%"></leaflet> EVENTS WILL STILL FIRE but all will for each 
+directive-->
+    <!-- NOTICE events attribute is optional it is more for options in 
+	 whitelisting (enable), blacklisting (disable), and logic (emit or 
+broadcast)  -->
+    <leaflet lf-center="london" event-broadcast="events" markers="markers" 
+height="480px" width="100%"></leaflet>
+</div>

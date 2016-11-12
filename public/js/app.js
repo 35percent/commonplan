@@ -3,7 +3,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         $routeProvider
             .when("/", {
                 templateUrl: "list.html",
-                controller: "MarkersEventsAddController",
+                controller: "ListController",
                 resolve: {
                     contacts: function(Contacts) {
                         return Contacts.getContacts();

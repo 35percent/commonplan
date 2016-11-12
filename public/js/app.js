@@ -138,7 +138,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 }
             });
             $scope.$on("leafletDirectiveMarker.dragend", function(event, args){
-                $scope.position.lat = args.model.lat;
+                $scope.contact.address = args.model.lat;
                 $scope.position.lng = args.model.lng;
             });
         } ])

@@ -94,7 +94,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                     message: "My Added Marker"
                 });
             });
-        } ]);
+        } ])
     .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
             $location.path("#/");

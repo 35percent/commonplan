@@ -124,7 +124,7 @@ var mainMarker = {
                 markers: {
                     mainMarker: angular.copy(mainMarker)
                 },
-                contact: {
+                position: {
                     lat: 51,
                     lng: 0
                 },
@@ -136,8 +136,8 @@ var mainMarker = {
                 }
             });
             $scope.$on("leafletDirectiveMarker.dragend", function(event, args){
-                $scope.contact.lat = args.model.lat;
-                $scope.contact.lng = args.model.lng;
+                $scope.position.lat = args.model.lat;
+                $scope.position.lng = args.model.lng;
             });
     })
     .controller("EditContactController", function($scope, $routeParams, Contacts) {

@@ -125,8 +125,10 @@ var mainMarker = {
                     mainMarker: angular.copy(mainMarker)
                 },
                 contact: {
-                    address: 51,
-                    lng: 0
+                    phone: {
+                         work: 51,
+                         mobile: 0
+                         }
                 },
                 events: { // or just {} //all events
                     markers:{
@@ -136,8 +138,8 @@ var mainMarker = {
                 }
             });
             $scope.$on("leafletDirectiveMarker.dragend", function(event, args){
-                $scope.contact.address = args.model.lat;
-                $scope.position.lng = args.model.lng;
+                $scope.contact.phone.work = args.model.lat;
+                $scope.contact.phone.mobile = args.model.lng;
             });
     })
     .controller("EditContactController", function($scope, $routeParams, Contacts) {

@@ -89,6 +89,14 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 });
             });
 
+            $scope.markers = new Array();
+             angular.forEach($scope.contacts, function(contact, i) {
+                $scope.markers.push({
+                    lat: contact.phone.work, 
+                    lng: contact.phone.mobile, 
+                    message: contact.address 
+                });
+            });     
     })
     .controller('ListMarkersController',
     function($http, $scope, Contacts, $log, $rootScope) {

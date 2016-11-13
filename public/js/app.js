@@ -72,7 +72,8 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     })
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
-        var latd = $scope.contacts.address
+        var latd = $scope.contacts.phone.work;
+
             angular.extend($scope, {
                 london: {
                     lat: 51.505,
@@ -90,7 +91,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                     $scope.markers.push({
                     lat: leafEvent.latlng.lat,
                     lng: leafEvent.latlng.lng,
-                    message: latd 
+                    message: "My Added Marker"
                 });
             })
     })

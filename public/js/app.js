@@ -3,7 +3,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         $routeProvider
             .when("/", {
                 templateUrl: "list.html",
-                controller: "ListMarkersController",
+                controller: "ListController",
                 resolve: {
                     contacts: function(Contacts) {
                         return Contacts.getContacts();
@@ -81,14 +81,14 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 },
                 events: {}
             });
-
-            $scope.markers = new Array();
-                 
-                    $scope.markers.push({
-                    lat: 51.4,
-                    lng: -0.09,
-                    message: "My Added Marker"
+ angular.forEach($scope.contacts, function(contact, i) {
+                $scope.markers.push({
+                    lat: contact.phone.work, 
+                    lng: contact.phone.mobile, 
+                    message: contact.address 
                 });
+            });
+
     })
     .controller('ListMarkersController',
     function($http, $scope, Contacts, $log, $rootScope) {

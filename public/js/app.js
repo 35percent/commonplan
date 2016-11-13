@@ -85,7 +85,7 @@ for (var i = 0; i < $scope.contacts.length; i++) {
     $scope.markers['m' + i] = {
         lat: $scope.contacts[i].phone.work,
         lng: $scope.contacts[i].phone.mobile,
-        message: contacts[i].address
+        message: $scope.contacts[i].address
     };
 }
 

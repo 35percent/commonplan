@@ -113,7 +113,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
             }
         });
     }
-);
+)
     .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
             $location.path("#/");

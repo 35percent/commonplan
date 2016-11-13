@@ -3,7 +3,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         $routeProvider
             .when("/", {
                 templateUrl: "list.html",
-                controller: "ListController",
+                controller: "ListMarkersController",
                 resolve: {
                     contacts: function(Contacts) {
                         return Contacts.getContacts();
@@ -73,7 +73,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
 
-	angular.extend($scope, {
+            angular.extend($scope, {
                 london: {
                     lat: 51.505,
                     lng: -0.09,
@@ -81,15 +81,39 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 },
                 events: {}
             });
-for (var i = 0; i < $scope.contacts.length; i++) {
-    $scope.markers['m' + i] = {
-        lat: $scope.contacts[i].phone.work,
-        lng: $scope.contacts[i].phone.mobile,
-        message: $scope.contacts[i].address
-    };
-}
 
+            $scope.markers = new Array();
+                 
+                    $scope.markers.push({
+                    lat: 51.4,
+                    lng: -0.09,
+                    message: "My Added Marker"
+                });
     })
+    .controller('ListMarkersController',
+    function($http, $scope, Contacts, $log, $rootScope) {
+        var promiseContacts = Contacts.getContacts();
+        $scope.markers = [];
+        promiseContacts.then(function(contacts) {
+            $rootScope.contacts = contacts.contacts;
+            
+            angular.forEach($scope.contacts, function(contact, i) {
+                $scope.markers.push({
+                    lat: contact.phone.work, 
+                    lng: contact.phone.mobile, 
+                    message: "<popup contact='contacts[" + i + "]'></popup>"
+                });
+            });
+        });
+        angular.extend($scope, {
+            london: {
+                lat: 51.505,
+                lng: -0.09,
+                zoom: 12
+            }
+        });
+    }
+);
     .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
             $location.path("#/");

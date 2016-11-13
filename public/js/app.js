@@ -70,7 +70,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 });
         }
     })
-    .controller("ListController", function(contacts, $scope, Contacts) {
+    .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
             angular.extend($scope, {
                 london: {
@@ -85,7 +85,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
 
             $scope.$on("leafletDirectiveMap.click", function(event, args){
                 var leafEvent = args.leafletEvent;
-                $scope.contact.phone.work = leafEvent.latlng.lat;
+                $scope.contact.address = leafEvent.latlng.lat;
                 $scope.contact.phone.mobile = leafEvent.latlng.lng;
 
                 $scope.markers.push({

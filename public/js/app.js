@@ -72,7 +72,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     })
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
-        var latd = $scope.contacts.phone.work;
+        var latd = $scope.contacts.address;
 
             angular.extend($scope, {
                 london: {

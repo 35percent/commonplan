@@ -70,7 +70,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 });
         }
     })
-    .controller("ListController", function(contacts, $scope) {
+    .controller("ListController", function(contacts, $scope, Contacts) {
         $scope.contacts = contacts.data;
             angular.extend($scope, {
                 london: {

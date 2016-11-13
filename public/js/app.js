@@ -87,8 +87,8 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 var leafEvent = args.leafletEvent;
 
                 $scope.markers.push({
-                    lat: leafEvent.latlng.lat,
-                    lng: leafEvent.latlng.lng,
+                    lat: $scope.contacts.phone.work,
+                    lng: $scope.contacts.phone.mobile,
                     message: "My Added Marker"
                 });
             })

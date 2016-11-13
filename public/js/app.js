@@ -87,8 +87,8 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
 
                  
                     $scope.markers.push({
-                    lat: $scope.contacts.address,
-                    lng: $scope.contacts.email,
+                    lat: 51.4,
+                    lng: -0.09,
                     message: "My Added Marker"
                 });
     })

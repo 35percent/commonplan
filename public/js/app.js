@@ -87,7 +87,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 $scope.markers.push({
                     lat: contact.phone.work, 
                     lng: contact.phone.mobile, 
-                    message: contact.address 
+                    message: "<popup contact='contacts[" + i + "]'></popup>" 
                 });
             });     
     })

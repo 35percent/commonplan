@@ -70,6 +70,15 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 });
         }
     })
+    .directive('popup', ['$http', '$compile', function($http, $compile) {
+    return {
+        restrict: 'E',
+        scope: {
+            contact: "="
+        },
+        templateUrl: 'popup.html'
+    };
+    }])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
 

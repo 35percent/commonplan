@@ -93,7 +93,7 @@ layers: {
             baselayers: {
                 osm: {
                     name: 'OpenStreetMap',
-                    url: 'http://{s}.tiles.mapbox.com/v3/enrico-in-w.ka4k56fp/{z}/{x}/{y}.png',
+                    url: 'https://api.mapbox.com/styles/v1/commonplan/civo5ceam004f2kqk1duehcs4/static/-0.090768,51.488413,12.68,0.00,0.00/600x400?access_token=pk.eyJ1IjoiY29tbW9ucGxhbiIsImEiOiJjaXZvNHpsemcwMDB6MnRrd3kwYXBnN2NsIn0.Lqx-zAhA3p9N1XV3jV7Dog',
                     type: 'xyz'
                 }
             }

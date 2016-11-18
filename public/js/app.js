@@ -111,8 +111,11 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                             type: 'xyz'
                         }
                     }
-                }
-            });
+                },
+                defaults: {
+                scrollWheelZoom: false
+        }
+     });
 
              $scope.markers = new Array();
              angular.forEach($scope.contacts, function(contact, i) {

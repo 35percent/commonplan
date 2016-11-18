@@ -94,7 +94,6 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
             $scope.markers = new Array();
              angular.forEach($scope.contacts, function(contact, i) {
                 $scope.markers.push({
-                    iconUrl: '../droppin.svg',
                     lat: contact.phone.work, 
                     lng: contact.phone.mobile, 
                     getMessageScope: function() { return $scope; },
@@ -116,7 +115,6 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
             });
         }
 var mainMarker = {
-                iconUrl: '../droppin.svg',
                 lat: 51,
                 lng: 0,
                 focus: true,

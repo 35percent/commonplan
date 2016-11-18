@@ -93,7 +93,7 @@ layers: {
             baselayers: {
                 osm: {
                     name: 'OpenStreetMap',
-                    url: 'https://{s}.tiles.mapbox.com/v3/examples.map-i875mjb7/{z}/{x}/{y}.png',
+                    url: 'http://{s}.tiles.mapbox.com/v3/enrico-in-w.ka4k56fp/{z}/{x}/{y}.png',
                     type: 'xyz'
                 }
             }

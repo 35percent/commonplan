@@ -118,7 +118,7 @@ var mainMarker = {
                 lat: 51,
                 lng: 0,
                 focus: true,
-                message: "Drag me to the location you want to comment on!",
+                message: "Drag me to the location</br>you want to comment on!",
                 draggable: true
             };
             angular.extend($scope, {

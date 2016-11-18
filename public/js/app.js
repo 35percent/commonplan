@@ -82,32 +82,38 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
 
-     angular.extend($scope, {
-        center: {
-            lat: 51.0391667,
-            lng: -0.09,
-            zoom: 6
-        },
-        layers: {
-            baselayers: {
-                osm: {
-                    name: 'OpenStreetMap',
-                    url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                    type: 'xyz'
+    angular.extend($scope, {
+                center: {
+                    lat: 25.0391667,
+                    lng: 121.525,
+                    zoom: 6
                 },
-                mapbox_light: {
-                    url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
-                    options: {
-                    apikey: 'pk.eyJ1IjoiY29tbW9ucGxhbiIsImEiOiJjaXZvNHpsemcwMDB6MnRrd3kwYXBnN2NsIn0.Lqx-zAhA3p9N1XV3jV7Dog',
-                    mapid: 'commonplan.civo5q8zk00122np8fv6bdtm8-606p3'
+                markers: {
+                    taipei: {
+                        lat: 25.0391667,
+                        lng: 121.525,
+                    }
+                },
+                layers: {
+                    baselayers: {
+                        mapbox_light: {
+                            name: 'Mapbox Light',
+                            url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
+                            type: 'xyz',
+                            layerOptions: {
+                                apikey: 'pk.eyJ1IjoiYnVmYW51dm9scyIsImEiOiJLSURpX0pnIn0.2_9NrLz1U9bpwMQBhVk97Q',
+                                mapid: 'bufanuvols.lia22g09'
+                            }
+                        },
+                        osm: {
+                            name: 'OpenStreetMap',
+                            url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                            type: 'xyz'
+                        }
                     }
                 }
-            }
-        },
-        defaults: {
-            scrollWheelZoom: false
-        }
-    });
+            });
+
              $scope.markers = new Array();
              angular.forEach($scope.contacts, function(contact, i) {
                 $scope.markers.push({

@@ -108,7 +108,6 @@ var tilesDict = {
             scrollWheelZoom: false
         }
     });
-})
             $scope.markers = new Array();
              angular.forEach($scope.contacts, function(contact, i) {
                 $scope.markers.push({

@@ -174,8 +174,8 @@ angular.extend($scope, {
                 },
                 contact: {
                     phone: {
-                         work: 51,
-                         mobile: 0
+                         work: 51.48640717153224,
+                         mobile: -0.09274005889892578
                          }
                 },
                 events: { // or just {} //all events

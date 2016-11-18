@@ -89,15 +89,23 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                     zoom: 8
                 },
                 events: {},
-layers: {
-            baselayers: {
-                osm: {
-                    name: 'OpenStreetMap',
-                    url: 'https://api.mapbox.com/styles/v1/commonplan/civo5ceam004f2kqk1duehcs4/static/-0.090768,51.488413,12.68,0.00,0.00/600x400?access_token=pk.eyJ1IjoiY29tbW9ucGxhbiIsImEiOiJjaXZvNHpsemcwMDB6MnRrd3kwYXBnN2NsIn0.Lqx-zAhA3p9N1XV3jV7Dog',
-                    type: 'xyz'
-                }
-            }
-        },
+$scope.layers = {
+
+    baselayers: {
+
+        layer1: {
+
+            name: 'Commonplace',
+
+            type: 'xyz',
+
+            url: "https://api.mapbox.com/styles/v1/commonplan/civo5ceam004f2kqk1duehcs4/static/-0.090768,51.488413,12.68,0.00,0.00/600x400?access_token=pk.eyJ1IjoiY29tbW9ucGxhbiIsImEiOiJjaXZvNHpsemcwMDB6MnRrd3kwYXBnN2NsIn0.Lqx-zAhA3p9N1XV3jV7Dog",
+
+       }
+
+    }
+
+},
 defaults: {
             scrollWheelZoom: false
         }

@@ -3,15 +3,15 @@
 <div class="gttr" ng-hide="contact._id">
 <div class="comment-title">
     <p>
-      <label>First Name (required)</label> 
-      <input id="name" class="form-control" type="text" ng-model="contact.firstName" required> 
+      <label>Your Comment</label> 
+      <input id="name" class="cp-textarea form-control" type="text" rows="6" ng-model="contact.firstName" required> 
     </p>
     <p>
-      <label>Last Name (required)</label> 
+      <label>Your Name</label> 
       <input id="name" class="form-control" type="text" ng-model="contact.lastName" required> 
     </p>
     <p>
-      <label>Email (required)</label> <input id="name" class="form-control" 
+      <label>Email</label> <input id="name" class="form-control" 
 type="text" ng-model="contact.email" required> </p>
     <p>
       <label>Phone (Mobile)</label> 
@@ -20,13 +20,8 @@ type="text" ng-model="contact.email" required> </p>
     <p>
       <label>Phone (Work)</label> <input id="name" class="form-control" 
 type="text" ng-model="contact.phone.work"> </p>
-    <p>
-      <label>Address</label> <input id="name" class="form-control" type="text" 
-ng-model="contact.address"> </p>
-    <p>
-      <label>Twitter Handle</label> 
-      <input id="name" class="form-control" type="text" ng-model="contact.twitter"> 
-    </p>
+   
+ 
     <p>
       <button style="margin-top:20px" class="btn btn-primary save-comment" ng-click="saveContact(contact)">Save Comment</button>
       <button style="margin-top:20px" class="btn btn-default" ng-click="back()">Back</button>

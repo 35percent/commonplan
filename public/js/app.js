@@ -141,12 +141,35 @@ var mainMarker = {
                 message: "Drag me to the location</br>you want to comment on!",
                 draggable: true
             };
-            angular.extend($scope, {
-                london: {
-                    lat: 51.505,
-                    lng: -0.09,
-                    zoom: 8
+
+angular.extend($scope, {
+                center: {
+                    lat: 51.48640717153224,
+                    lng: -0.09274005889892578,
+                    zoom: 15
                 },
+                layers: {
+                    baselayers: {
+                        mapbox_light: {
+                            name: 'Mapbox Light',
+                            url: 'https://api.mapbox.com/styles/v1/commonplan/civobzeva00442ko4gqzy0gq0/tiles/256/{z}/{x}/{y}?access_token={apikey}',
+                            type: 'xyz',
+                            layerOptions: {
+                                apikey: 'pk.eyJ1IjoiY29tbW9ucGxhbiIsImEiOiJjaXZvNHpsemcwMDB6MnRrd3kwYXBnN2NsIn0.Lqx-zAhA3p9N1XV3jV7Dog',
+                                mapid: 'commonplan.civo5q8zk00122np8fv6bdtm8-606p3'
+                            }
+                        },
+                        osm: {
+                            name: 'OpenStreetMap',
+                            url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                            type: 'xyz'
+                        }
+                    }
+                },
+                defaults: {
+                scrollWheelZoom: false
+        }
+
                 markers: {
                     mainMarker: angular.copy(mainMarker)
                 },

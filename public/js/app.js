@@ -98,11 +98,11 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                     baselayers: {
                         mapbox_light: {
                             name: 'Mapbox Light',
-                            url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
+                            url: 'https://api.mapbox.com/styles/v1/commonplan/civo5ceam004f2kqk1duehcs4/tiles/256/{z}/{x}/{y}.png?access_token={apikey}',
                             type: 'xyz',
                             layerOptions: {
-                                apikey: 'pk.eyJ1IjoiYnVmYW51dm9scyIsImEiOiJLSURpX0pnIn0.2_9NrLz1U9bpwMQBhVk97Q',
-                                mapid: 'bufanuvols.lia22g09'
+                                apikey: 'pk.eyJ1IjoiY29tbW9ucGxhbiIsImEiOiJjaXZvNHpsemcwMDB6MnRrd3kwYXBnN2NsIn0.Lqx-zAhA3p9N1XV3jV7Dog',
+                                mapid: 'commonplan.civo5q8zk00122np8fv6bdtm8-606p3'
                             }
                         },
                         osm: {

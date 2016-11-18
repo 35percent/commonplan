@@ -4,11 +4,15 @@
 <div class="comment-title">
   <p>
       <label>Describe location:</label> 
-      <input id="name" class="form-control" value="i.e. Corner of Walworth Rd/East St" type="text" ng-model="contact.firstName" required> 
+      <input id="name" class="form-control" ng-value="i.e. Corner of Walworth Rd/East St" type="text" ng-model="contact.address" required> 
     </p>
     <p>
       <label>Your Comment:</label> 
-      <textarea id="name" class="cp-textarea form-control" type="text" rows="10" ng-model="contact.lastName" required></textarea>
+      <textarea id="name" class="cp-textarea form-control" type="text" rows="10" ng-model="contact.firstName" required></textarea>
+    </p>
+   <p>
+      <label>Your name:</label> 
+      <input id="name" class="form-control" type="text" ng-model="contact.lastName" required> 
     </p>
     <p>
       <label>Email:</label> <input id="name" class="form-control" 

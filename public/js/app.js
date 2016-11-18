@@ -115,6 +115,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
             });
         }
 var mainMarker = {
+                iconUrl: 'droppin.svg'
                 lat: 51,
                 lng: 0,
                 focus: true,

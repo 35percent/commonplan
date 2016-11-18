@@ -109,7 +109,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         $scope.saveContact = function(contact) {
             Contacts.createContact(contact).then(function(doc) {
                 var contactUrl = "/contact/" + doc.data._id;
-                $location.path(contactUrl);
+                $location.path("#/");
             }, function(response) {
                 alert(response);
             });

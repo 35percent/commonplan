@@ -168,8 +168,7 @@ angular.extend($scope, {
                 },
                 defaults: {
                 scrollWheelZoom: false
-        }
-
+        },
                 markers: {
                     mainMarker: angular.copy(mainMarker)
                 },

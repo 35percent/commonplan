@@ -79,7 +79,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         templateUrl: 'popup.html'
     };
     }])
-    .controller("ListController", function(contacts, $scope) {
+    .controller("ListController", [ '$scope', '$http', 'contacts', function($scope, $http, contacts) {
         $scope.contacts = contacts.data;
 
    var featuresData = {};
@@ -118,7 +118,6 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                     fillOpacity: feature.properties['fill-opacity']
                 };
             }
-}]);
             $scope.markers = new Array();
              angular.forEach($scope.contacts, function(contact, i) {
                 $scope.markers.push({
@@ -128,7 +127,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                     message: "<popup contact='contacts[" + i + "]'></popup>" 
                 });
             });     
-    })
+}]);
     .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
             $location.path("#/");

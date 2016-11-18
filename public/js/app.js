@@ -127,7 +127,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                     message: "<popup contact='contacts[" + i + "]'></popup>" 
                 });
             });     
-}]);
+}])
     .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
             $location.path("#/");

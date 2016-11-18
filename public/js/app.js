@@ -83,9 +83,9 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         $scope.contacts = contacts.data;
 
      angular.extend($scope, {
-        taipei: {
-            lat: 25.0391667,
-            lng: 121.525,
+        center: {
+            lat: 51.0391667,
+            lng: -0.09,
             zoom: 6
         },
         layers: {
@@ -98,8 +98,8 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 mapbox_light: {
                     url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
                     options: {
-                        apikey: 'pk.eyJ1IjoiY29tbW9ucGxhbiIsImEiOiJjaXZvNHpsemcwMDB6MnRrd3kwYXBnN2NsIn0.Lqx-zAhA3p9N1XV3jV7Dog',
-                        mapid: 'commonplan.civo5q8zk00122np8fv6bdtm8-606p3'
+                    apikey: 'pk.eyJ1IjoiY29tbW9ucGxhbiIsImEiOiJjaXZvNHpsemcwMDB6MnRrd3kwYXBnN2NsIn0.Lqx-zAhA3p9N1XV3jV7Dog',
+                    mapid: 'commonplan.civo5q8zk00122np8fv6bdtm8-606p3'
                     }
                 }
             }

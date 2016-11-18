@@ -82,41 +82,26 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
 
-var europeCapitals = {
-        Madrid: {
-            lat: 40.4,
-            lng: -3.6833333
-        },
-        London: {
-            lat: 51.5,
-            lng: -0.116667
-        },
-        Lisbon: {
-            lat: 38.7166667,
-            lng: -9.1333333
-        },
-        Paris: {
-            lat: 48.866667,
-            lng: 2.333333
-        }
-        
-    };
-
-    angular.extend($scope, {
-        center: {
-            lat: 51.505,
-            lng: -0.09,
-            zoom: 4
-        },
-        paths: {
-            polygon: {
-                type: "polygon",
-                latlngs: [ europeCapitals.London, europeCapitals.Lisbon , europeCapitals.Madrid, europeCapitals.Paris ],
-                fillColor: 'red',
-                color: 'red'
+            angular.extend($scope, {
+                london: {
+                    lat: 51.505,
+                    lng: -0.09,
+                    zoom: 8
+                },
+                events: {},
+layers: {
+            baselayers: {
+                osm: {
+                    name: 'OpenStreetMap',
+                    url: 'https://{s}.tiles.mapbox.com/v3/examples.map-i875mjb7/{z}/{x}/{y}.png',
+                    type: 'xyz'
+                }
             }
         },
-    });
+defaults: {
+            scrollWheelZoom: false
+        }
+            });
 
             $scope.markers = new Array();
              angular.forEach($scope.contacts, function(contact, i) {

@@ -79,45 +79,36 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         templateUrl: 'popup.html'
     };
     }])
-    .controller("ListController", [ '$scope', '$http', 'contacts', function($scope, $http, contacts) {
+    .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
 
-   var featuresData = {};
-    angular.extend($scope, {
-        center: {
-            lat: -33.8979173,
-            lng: 151.2323598,
-            zoom: 14
-        },
-        tiles: {
-                    name: 'Mapbox Park',
-                    url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
-                    type: 'xyz',
-                    options: {
-                        apikey: 'pk.eyJ1IjoiZmVlbGNyZWF0aXZlIiwiYSI6Ik1Gak9FXzAifQ.9eB142zVCM4JMg7btDDaZQ',
-                        mapid: 'feelcreative.llm8dpdk'
-                    }
-        },
-        geojson: {}
-    });
-    
-    $http.get("https://a.tiles.mapbox.com/v4/feelcreative.llm8dpdk/features.json?access_token=pk.eyJ1IjoiZmVlbGNyZWF0aXZlIiwiYSI6Ik1Gak9FXzAifQ.9eB142zVCM4JMg7btDDaZQ").success(function(data) {
-                $scope.geojson.data = data;
-                featuresData = data;
-                $scope.geojson.style = style;
-                console.log(data);
-                
-     });
-    
-    function style(feature) {
-                console.log(feature.properties);
-                return {
-                    fillColor: feature.properties.fill,
-                    opacity: feature.properties['stroke-opacity'],
-                    color: feature.properties.stroke,
-                    fillOpacity: feature.properties['fill-opacity']
-                };
+var tilesDict = {
+        openstreetmap: {
+            url: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            options: {
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }
+        },
+        opencyclemap: {
+            url: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
+            options: {
+                attribution: 'All maps &copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, map data &copy; <a href="http://www.openstreetmap.org">OpenStreetMap</a> (<a href="http://www.openstreetmap.org/copyright">ODbL</a>'
+            }
+        }
+    };
+
+    angular.extend($scope, {
+        sidney: {
+            lat: -33.8830,
+            lng: 151.2166,
+            zoom: 10
+        },
+        tiles: tilesDict.opencyclemap,
+        defaults: {
+            scrollWheelZoom: false
+        }
+    });
+})
             $scope.markers = new Array();
              angular.forEach($scope.contacts, function(contact, i) {
                 $scope.markers.push({
@@ -127,7 +118,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                     message: "<popup contact='contacts[" + i + "]'></popup>" 
                 });
             });     
-}])
+    })
     .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
             $location.path("#/");

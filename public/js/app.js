@@ -90,7 +90,7 @@ var tilesDict = {
             }
         },
         opencyclemap: {
-            url: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
+            url: "http://{s}.tiles.mapbox.com/v3/commonplan.civo5q8zk00122np8fv6bdtm8-606p3/{z}/{x}/{y}.png",
             options: {
                 attribution: 'All maps &copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, map data &copy; <a href="http://www.openstreetmap.org">OpenStreetMap</a> (<a href="http://www.openstreetmap.org/copyright">ODbL</a>'
             }
@@ -98,9 +98,9 @@ var tilesDict = {
     };
 
     angular.extend($scope, {
-        sidney: {
-            lat: -33.8830,
-            lng: 151.2166,
+        london: {
+            lat: 51.8830,
+            lng: -0.09,
             zoom: 10
         },
         tiles: tilesDict.opencyclemap,

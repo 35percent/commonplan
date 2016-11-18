@@ -82,34 +82,43 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
 
-            angular.extend($scope, {
-                london: {
-                    lat: 51.505,
-                    lng: -0.09,
-                    zoom: 8
-                },
-$scope.layers = {
-
-    baselayers: {
-
-        layer1: {
-
-            name: 'Commonplace',
-
-            type: 'xyz',
-
-            url: "https://api.mapbox.com/styles/v1/commonplan/civo5ceam004f2kqk1duehcs4/static/-0.090768,51.488413,12.68,0.00,0.00/600x400?access_token=pk.eyJ1IjoiY29tbW9ucGxhbiIsImEiOiJjaXZvNHpsemcwMDB6MnRrd3kwYXBnN2NsIn0.Lqx-zAhA3p9N1XV3jV7Dog",
-
-       }
-
-    }
-
-},
-defaults: {
-            scrollWheelZoom: false
-        }
-            });
-
+   var featuresData = {};
+    angular.extend($scope, {
+        center: {
+            lat: -33.8979173,
+            lng: 151.2323598,
+            zoom: 14
+        },
+        tiles: {
+                    name: 'Mapbox Park',
+                    url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
+                    type: 'xyz',
+                    options: {
+                        apikey: 'pk.eyJ1IjoiZmVlbGNyZWF0aXZlIiwiYSI6Ik1Gak9FXzAifQ.9eB142zVCM4JMg7btDDaZQ',
+                        mapid: 'feelcreative.llm8dpdk'
+                    }
+        },
+        geojson: {}
+    });
+    
+    $http.get("https://a.tiles.mapbox.com/v4/feelcreative.llm8dpdk/features.json?access_token=pk.eyJ1IjoiZmVlbGNyZWF0aXZlIiwiYSI6Ik1Gak9FXzAifQ.9eB142zVCM4JMg7btDDaZQ").success(function(data) {
+                $scope.geojson.data = data;
+                featuresData = data;
+                $scope.geojson.style = style;
+                console.log(data);
+                
+     });
+    
+    function style(feature) {
+                console.log(feature.properties);
+                return {
+                    fillColor: feature.properties.fill,
+                    opacity: feature.properties['stroke-opacity'],
+                    color: feature.properties.stroke,
+                    fillOpacity: feature.properties['fill-opacity']
+                };
+            }
+}]);
             $scope.markers = new Array();
              angular.forEach($scope.contacts, function(contact, i) {
                 $scope.markers.push({

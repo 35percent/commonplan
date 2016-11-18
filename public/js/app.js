@@ -88,7 +88,6 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                     lng: -0.09,
                     zoom: 8
                 },
-                events: {},
 $scope.layers = {
 
     baselayers: {

@@ -82,33 +82,33 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
 
-var tilesDict = {
-        openstreetmap: {
-            url: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            options: {
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+     angular.extend($scope, {
+        taipei: {
+            lat: 25.0391667,
+            lng: 121.525,
+            zoom: 6
+        },
+        layers: {
+            baselayers: {
+                osm: {
+                    name: 'OpenStreetMap',
+                    url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    type: 'xyz'
+                },
+                mapbox_light: {
+                    url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
+                    options: {
+                        apikey: 'pk.eyJ1IjoiYnVmYW51dm9scyIsImEiOiJLSURpX0pnIn0.2_9NrLz1U9bpwMQBhVk97Q',
+                        mapid: 'bufanuvols.lia22g09'
+                    }
+                }
             }
         },
-        opencyclemap: {
-            url: "http://{s}.tiles.mapbox.com/v3/commonplan.civo5q8zk00122np8fv6bdtm8-606p3/{z}/{x}/{y}.png",
-            options: {
-                attribution: 'All maps &copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, map data &copy; <a href="http://www.openstreetmap.org">OpenStreetMap</a> (<a href="http://www.openstreetmap.org/copyright">ODbL</a>'
-            }
-        }
-    };
-
-    angular.extend($scope, {
-        london: {
-            lat: 51.8830,
-            lng: -0.09,
-            zoom: 10
-        },
-        tiles: tilesDict.opencyclemap,
         defaults: {
             scrollWheelZoom: false
         }
     });
-            $scope.markers = new Array();
+             $scope.markers = new Array();
              angular.forEach($scope.contacts, function(contact, i) {
                 $scope.markers.push({
                     lat: contact.phone.work, 

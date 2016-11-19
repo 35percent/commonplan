@@ -1,6 +1,6 @@
 var http = require("http");
 setInterval(function() {
-    http.get("http://commonplan.herokuapp.com");
+    http.get("/#/");
 }, 300000); // every 5 minutes (300000)
 
 var express = require("express");

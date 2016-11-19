@@ -91,7 +91,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 layers: {
                     baselayers: {
                         mapbox_light: {
-                            name: 'Mapbox Light',
+                            name: 'EWNF Boundary',
                             url: 'https://api.mapbox.com/styles/v1/commonplan/civobzeva00442ko4gqzy0gq0/tiles/256/{z}/{x}/{y}?access_token={apikey}',
                             type: 'xyz',
                             layerOptions: {
@@ -100,7 +100,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                             }
                         },
                         osm: {
-                            name: 'OpenStreetMap',
+                            name: 'General Map',
                             url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                             type: 'xyz'
                         }

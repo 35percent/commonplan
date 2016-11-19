@@ -1,5 +1,6 @@
+var http = require("http");
 setInterval(function() {
-    http.get("/");
+    http.get("http://commonplan.herokuapp.com");
 }, 300000); // every 5 minutes (300000)
 
 var express = require("express");
@@ -13,11 +14,6 @@ var CONTACTS_COLLECTION = "contacts";
 var app = express();
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
-
-// keep the app alive on heroku by pinging it every 5 mins
-setInterval(function() {
-    app.get('/', function(req, res));
-}, 300000); // every 5 minutes (300000)
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;

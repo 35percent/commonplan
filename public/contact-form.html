@@ -1,5 +1,5 @@
 <aside class="sidebar comment-sidebar" id="sidebar-wrapper-positive" 
-style="position: relative;">
+style="position: absolute;">
   <div class="comment-content" style="height: 100%;">
 <div class="gttr" ng-hide="contact._id">
 <div class="comment-title">
@@ -8,8 +8,9 @@ style="position: relative;">
       <input id="name" class="form-control" type="text" ng-model="contact.address" required> 
     </p>
     <p>
-      <label>How could it be improved?</label> 
-      <textarea id="name" class="cp-textarea form-control" type="text" rows="10" ng-model="contact.firstName" required></textarea>
+      <label>How could it be improved?</label> <textarea id="name" 
+class="cp-textarea form-control" type="text" rows="6" 
+ng-model="contact.firstName" required></textarea>
     </p>
    <p>
       <label>Your name:</label> 

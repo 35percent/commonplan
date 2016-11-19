@@ -144,8 +144,8 @@ var mainMarker = {
 
 angular.extend($scope, {
                 center: {
-                    lat: 51.48742264931338,
-                    lng: -0.08514404296875,
+                    lat: 51.48662095820769,
+                    lng: -0.0885772705078125,
                     zoom: 15
                 },
                 layers: {

@@ -135,8 +135,8 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
             });
         }
 var mainMarker = {
-                lat: 51.48640717153224,
-                lng: -0.09274005889892578,
+                lat: 51.48737, 
+                lng: -0.1008511,
                 focus: true,
                 message: "Drag me to the location</br>you want to comment on!",
                 draggable: true

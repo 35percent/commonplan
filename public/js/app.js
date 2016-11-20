@@ -26,7 +26,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     return function() {
     return $http.get('app.json');
   };
-});
+})
     .service("Contacts", function($http) {
         this.getContacts = function() {
             return $http.get("/contacts").

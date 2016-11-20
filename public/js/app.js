@@ -81,11 +81,8 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     }])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
-
-var latd = process.env.LATITUDE;
-var longd = process.env.LONGITUDE;
-
-    angular.extend($scope, {
+    
+angular.extend($scope, {
                 center: {
                     lat: latd,
                     lng: longd,

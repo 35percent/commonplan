@@ -49,9 +49,11 @@ function handleError(res, reason, message, code) {
  *    POST: creates a new contact
  */
 
+app.get('/app.js', function(req, res){
+    res.send("var latd='"+process.env.LATITUDE"'");
+});
+
 app.get("/contacts", function(req, res) {
-    var latd = process.env.LATITUDE;
-    res.json({result: latd});
     db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get contacts.");

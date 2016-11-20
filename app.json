@@ -4,5 +4,12 @@
   "repository": "https://github.com/35percent/commonplan",
   "logo": "https://mlab.com/company/brand/resources/mLab-logo-onlight.png",
   "keywords": ["node", "express", "angular", "MEAN", "mongodb", "REST", "API"],
-  "addons": ["mongolab"]
+  "addons": ["mongolab"],
+"env": {
+    "SLACK_SUBDOMAIN": {
+      "description": "The Slack Sub domain value.",
+      "value": "willthiswork"
+    }
+  }
+
 }

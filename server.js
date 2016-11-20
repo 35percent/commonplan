@@ -50,7 +50,7 @@ function handleError(res, reason, message, code) {
  */
 
 app.get('/app.js', function(req, res){
-    res.send("var latd='"+process.env.LATITUDE"'");
+    res.send({ latd: process.env.LATITUDE });
 });
 
 app.get("/contacts", function(req, res) {

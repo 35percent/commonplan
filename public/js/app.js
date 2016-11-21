@@ -82,6 +82,10 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
 
+angular.module('justMap', ['justMap.config']).run(function (string) {
+  console.log("The name constant!", name) // outputs "justMap"
+});
+
 angular.extend($scope, {
                 center: {
                     lat: 51.48737, 

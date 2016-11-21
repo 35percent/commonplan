@@ -1,4 +1,4 @@
-angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
+angular.module("contactsApp", ['ngRoute', 'justMap.config', 'leaflet-directive'])
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
@@ -81,6 +81,8 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     }])
     .controller("ListController", function(Config, contacts, $scope) {
         $scope.contacts = contacts.data;
+
+console.log("The name constant", name);
 
 angular.extend($scope, {
                 center: {

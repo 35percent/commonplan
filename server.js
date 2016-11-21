@@ -49,11 +49,11 @@ function handleError(res, reason, message, code) {
  *    POST: creates a new contact
  */
 
-app.get('/config', function(req, res){
-    var latd = process.env.LATITUDE
-    res.send(latd);
-});
-
+/*app.get('/config', function(req, res){
+*    var latd = process.env.LATITUDE
+*    res.send(latd);
+*});
+*/
 
 app.get("/contacts", function(req, res) {
     db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {

@@ -28,11 +28,11 @@
     "gulp-ng-config": "^1.3.1",
     "mongodb": "^2.0.43"
   },
-  "devDependencies": {
-  "gulp": "^3.8.10"
+"devDependencies": {
+    "gulp": "~3.9.0"
 },
   "scripts": { 
-  "start": "node app", 
+  "start": "node server.js", 
   "postinstall": "gulp configvars"
   }
 }

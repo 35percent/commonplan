@@ -22,11 +22,6 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 redirectTo: "/"
             })
     })
-   .service('Config', function($http) {
-    return function() {
-    return $http.get('app.json');
-  };
-})
     .service("Contacts", function($http) {
         this.getContacts = function() {
             return $http.get("/contacts").
@@ -87,15 +82,13 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .controller("ListController", function(Config, contacts, $scope) {
         $scope.contacts = contacts.data;
 
-    Config()
-    .then(function(config) {
-      var latd = $http.get(config.LATITUDE);
-      console.log(latd);
-    });
+ $http.get('/config')
+         .then(saveConfig)
+         .catch(handleError);
 
 angular.extend($scope, {
                 center: {
-                    lat: 51.48737, 
+                    lat: latd, 
                     lng: -0.1008511,
                     zoom: 15
                 },

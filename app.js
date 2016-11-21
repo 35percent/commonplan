@@ -1,5 +1,5 @@
 angular.module("justMap.config", [])
-.constant("name", "JustPlan")
+.constant("name", "51.06")
 .constant("description", "A MEAN app integrated with leaflet that allows users to add comments to a map.")
 .constant("repository", "https://github.com/35percent/commonplan")
 .constant("logo", "https://pbs.twimg.com/profile_images/481778845620518912/fIPiDX4c.jpeg")

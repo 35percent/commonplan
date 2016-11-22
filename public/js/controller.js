@@ -4,6 +4,12 @@ angular.module('justMap', ['justMap.config']).run(function (name) {
 });
 
 
+app.controller('myCtrl', function($scope, $http) {
+    $http.get("/getenv")
+    .then(function(response) {
+        console.log(response.data);
+    });
+
 angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .config(function($routeProvider) {
         $routeProvider
@@ -85,7 +91,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         templateUrl: 'popup.html'
     };
     }])
-    .controller(("ListController", GetEnv) function(contacts, $scope) {
+    .controller("ListController" function(contacts, $scope) {
         $scope.contacts = contacts.data;
 
 angular.extend($scope, {
@@ -127,15 +133,6 @@ angular.extend($scope, {
                 });
             });     
     })
-
-function GetEnv($http) {
-  
-    $http.get('/getenv')
-         .then(saveConfig)
-         console.log(env);
-         .catch(handleError);
-}
-
     .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
             $location.path("#/");

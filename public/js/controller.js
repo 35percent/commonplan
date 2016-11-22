@@ -91,7 +91,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         templateUrl: 'popup.html'
     };
     }])
-    .controller("ListController" function(contacts, $scope) {
+    .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
 
 angular.extend($scope, {

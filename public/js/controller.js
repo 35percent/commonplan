@@ -85,13 +85,8 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         templateUrl: 'popup.html'
     };
     }])
-    .controller("ListController", function(contacts, $scope) {
+    .controller("ListController", GetEnv function(contacts, $scope) {
         $scope.contacts = contacts.data;
-
- $http.get('/getenv')
-         .then(saveConfig)
-         .catch(handleError);
-         console.log(env);
 
 angular.extend($scope, {
                 center: {
@@ -132,6 +127,15 @@ angular.extend($scope, {
                 });
             });     
     })
+
+function GetEnv($http) {
+  
+    $http.get('/getenv')
+         .then(saveConfig)
+         console.log(env);
+         .catch(handleError);
+}
+
     .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
             $location.path("#/");

@@ -1,14 +1,15 @@
 // inject the constants
-angular.module('justMap', ['justMap.config']).run(function (name) {
-  console.log("The name constant!", name) // outputs "justMap"
-});
+// angular.module('justMap', ['justMap.config']).run(function (name) {
+//  console.log("The name constant!", name) // outputs "justMap"
+// });
 
 
-app.controller('myCtrl', function($scope, $http) {
-    $http.get("/getenv")
-    .then(function(response) {
-        console.log(response.data);
-    });
+// app.controller('getEnv', function($scope, $http) {
+//    $http.get("/getenv")
+//    .then(function(response) {
+//        console.log(response.data);
+//    });
+ //   });
 
 angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .config(function($routeProvider) {
@@ -20,7 +21,10 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                     contacts: function(Contacts) {
                         return Contacts.getContacts();
                     }
+                    getenv: funcion(getEnv) {
+                        return response.data;
                 }
+              }
             })
             .when("/new/contact", {
                 controller: "NewContactController",

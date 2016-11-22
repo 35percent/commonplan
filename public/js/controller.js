@@ -4,12 +4,12 @@
 // });
 
 
-// app.controller('getEnv', function($scope, $http) {
-//    $http.get("/getenv")
-//    .then(function(response) {
-//        console.log(response.data);
-//    });
- //   });
+.controller('getEnv', function($scope, $http) {
+    $http.get("/getenv")
+    .then(function(response) {
+        console.log(response.data);
+    });
+   });
 
 angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .config(function($routeProvider) {

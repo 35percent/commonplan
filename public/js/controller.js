@@ -88,7 +88,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
 
-console.log("Testing 123");
+console.log(message);
 
 angular.extend($scope, {
                 center: {

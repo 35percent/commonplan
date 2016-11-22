@@ -137,7 +137,13 @@ angular.extend($scope, {
                 });
             });     
     })
-    .controller("NewContactController", function($scope, $location, Contacts) {
+ .controller('getEnv', function($scope, $http) {
+    $http.get("/getenv")
+    .then(function(response) {
+        console.log(response.data);
+    });
+   });
+   .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
             $location.path("#/");
         }

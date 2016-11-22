@@ -21,7 +21,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                     contacts: function(Contacts) {
                         return Contacts.getContacts();
                     }
-                    getenv: funcion(getEnv) {
+                    getenv: function(getEnv) {
                         return response.data;
                 }
               }

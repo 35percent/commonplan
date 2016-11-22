@@ -1,3 +1,8 @@
+angular.module('justMap', ['justMap.config']).run(function (name) {
+  console.log("The name constant!", name) // outputs "justMap"
+});
+
+
 angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .config(function($routeProvider) {
         $routeProvider

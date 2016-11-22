@@ -134,7 +134,7 @@ angular.extend($scope, {
     .then(function(response) {
         console.log(response.data);
     });
-   });
+   })
    .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
             $location.path("#/");

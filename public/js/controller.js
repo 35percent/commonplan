@@ -1,13 +1,3 @@
-var addStream = require('add-stream');
-var concat = require('gulp-concat');
-
-gulp.task('js', function() {
-  return gulp.src('./public/js/app.js')
-    .pipe(addStream.obj(makeConfig())) // makeConfig is defined a few code blocks up
-    .pipe(concat('controller.js'))
-    .pipe(gulp.dest('...'));
-});
-
 // inject the constants
 angular.module('justMap', ['justMap.config']).run(function (name) {
   console.log("The name constant!", name) // outputs "justMap"

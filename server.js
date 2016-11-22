@@ -15,6 +15,17 @@ var app = express();
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
+//inject the constants
+var addStream = require('add-stream');
+var concat = require('gulp-concat');
+
+gulp.task('js', function() {
+  return gulp.src('public/js/app.js')
+    .pipe(addStream.obj(makeConfig())) // makeConfig is defined a few code blocks up
+    .pipe(concat('public/js/controller.js'))
+    .pipe(gulp.dest('...'));
+});
+
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
 

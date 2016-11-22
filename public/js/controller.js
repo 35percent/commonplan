@@ -1,5 +1,5 @@
 // require the Constants file created by gulp-ng-config
-require('./app.js');
+require('app.js');
 
 // inject the constants in the app.js file
 angular.module('justMap', ['justMap.config']).run(function (name) {

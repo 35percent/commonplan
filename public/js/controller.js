@@ -1,3 +1,7 @@
+// require the Constants file created by gulp-ng-config
+require('./app.js');
+
+// inject the constants in the app.js file
 angular.module('justMap', ['justMap.config']).run(function (name) {
   console.log("The name constant!", name) // outputs "justMap"
 });
@@ -86,10 +90,6 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     }])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
-
-angular.module('justMap', ['justMap.config']).run(function (name) {
-  console.log("The name constant!", name) // outputs "justMap"
-});
 
 angular.extend($scope, {
                 center: {

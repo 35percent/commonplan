@@ -56,9 +56,10 @@ function handleError(res, reason, message, code) {
 *});
 */
 
-app.get("/getenv", function(req, res) {
-    res.send({hello: "world"})
-});
+/*app.get("/getenv", function(req, res) {
+*    res.send({hello: "world"})
+*});
+*/
 
 app.get("/contacts", function(req, res) {
 db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {

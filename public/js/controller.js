@@ -12,10 +12,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 resolve: {
                     contacts: function(Contacts) {
                         return Contacts.getContacts();
-                    },
-                    getenv: function(getEnv) {
-                        return response.data;
-                }
+                    }
               }
             })
             .when("/new/contact", {

@@ -126,7 +126,9 @@ angular.extend($scope, {
                 });
             });     
     })
- .controller("getEnv", function($http) {
+var app = angular.module("app", []);
+
+app.controller("getEnv", function($http) {
     $http.get("/getenv")
     .success(function (data) {
         console.log(data)

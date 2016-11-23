@@ -32,6 +32,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
             return $http.get("/contacts").
                 then(function(response) {
                     return response;
+                    console.log(response);
                 }, function(response) {
                     alert("Error finding contacts.");
                 });
@@ -126,14 +127,6 @@ angular.extend($scope, {
                 });
             });     
     })
-var app = angular.module("app", []);
-
-app.controller("getEnv", function($http) {
-    $http.get("/getenv")
-    .success(function (data) {
-        console.log(data)
-    })
-   })
    .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
             $location.path("#/");

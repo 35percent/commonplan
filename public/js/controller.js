@@ -1,7 +1,3 @@
-// inject the constants
-// angular.module('justMap', ['justMap.config']).run(function (name) {
-//  console.log("The name constant!", name) // outputs "justMap"
-// });
 
 angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .config(function($routeProvider) {
@@ -32,7 +28,6 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
             return $http.get("/contacts").
                 then(function(response) {
                     return response;
-                    console.log(response);
                 }, function(response) {
                     alert("Error finding contacts.");
                 });
@@ -87,6 +82,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     }])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
+        console.log(contacts.data);
 
 angular.extend($scope, {
                 center: {

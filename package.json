@@ -4,8 +4,7 @@
   "description": "A MEAN app that allows users to manage contact lists",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "postinstall": "gulp configvars"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -25,8 +24,6 @@
   "dependencies": {
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
-    "gulp": "^3.9.0",
-    "gulp-ng-config": "^1.3.1",
     "mongodb": "^2.0.43"
   }
 }

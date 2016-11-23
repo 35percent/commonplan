@@ -129,11 +129,11 @@ angular.extend($scope, {
                 });
             });     
     })
- .controller('getEnv', function($scope, $http) {
+ .controller('getEnv', function($http) {
     $http.get("/getenv")
-    .then(function(response) {
-        console.log(response.data);
-    });
+    .success(function (data) {
+        console.log(data)
+    })
    })
    .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {

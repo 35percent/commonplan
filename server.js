@@ -57,8 +57,7 @@ function handleError(res, reason, message, code) {
 */
 
 app.get("/getenv", function(req, res) {
-    var env = process.env.LATITUDE;
-    res.json({result: env});
+    res.send({hello: "world"});
 });
 
 app.get("/contacts", function(req, res) {

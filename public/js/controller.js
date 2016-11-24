@@ -8,6 +8,9 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 resolve: {
                     contacts: function(Contacts) {
                         return Contacts.getContacts();
+                    },
+                    configvars: function(Configvars) {
+                        return Configvars.getConfigvars();
                     }
               }
             })
@@ -23,6 +26,15 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                 redirectTo: "/"
             })
     })
+    .service("Configvars", function($http) {
+        this.getConfigvars = function() {
+            return $http.get("/configvars").
+                then(function(response) {
+                    return response;
+                }, function(response) {
+                    alert("Error finding configvars.");
+                });
+        }
     .service("Contacts", function($http) {
         this.getContacts = function() {
             return $http.get("/contacts").
@@ -80,9 +92,10 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         templateUrl: 'popup.html'
     };
     }])
-    .controller("ListController", function(contacts, $scope) {
+    .controller("ListController", function(configvars, contacts, $scope) {
         $scope.contacts = contacts.data;
-        console.log(contacts.data);
+        $scope.configvars = configvars.data;
+        console.log(configvars.data);
 
 angular.extend($scope, {
                 center: {

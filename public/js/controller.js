@@ -94,9 +94,10 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     };
     }])
     .controller("ListController", function(configvars, contacts, $scope) {
-angular.extend($scope, {
         $scope.contacts = contacts.data;
         $scope.configvars = configvars.data;
+
+angular.extend($scope, {
         var latd = (configvars.data[0].lat);
         var longd = (configvars.data[0].lng);
         var zoomlevel = (configvars.data[0].zoom);

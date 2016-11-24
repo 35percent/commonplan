@@ -35,6 +35,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
                     alert("Error finding configvars.");
                 });
         }
+    })
     .service("Contacts", function($http) {
         this.getContacts = function() {
             return $http.get("/contacts").

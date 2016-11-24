@@ -96,10 +96,19 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .controller("ListController", function(configvars, contacts, $scope) {
         $scope.contacts = contacts.data;
         $scope.configvars = configvars.data;
-        console.log(configvars.data);
-        var coords = (configvars.data);
+        var latd = (configvars.data[0].lat);
+        var longd = (configvars.data[0].lng);
+        var zoomlevel = (configvars.data[0].zoom);
+        console.log(latd);
+        console.log(longd);
+        console.log(zoomlevel);
+
 angular.extend($scope, {
-                center: {coords},
+                center: {
+                lat: latd,
+                lng: longd,
+                zoom: 15 
+},
                 layers: {
                     baselayers: {
                         mapbox_light: {

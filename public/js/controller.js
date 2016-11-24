@@ -101,7 +101,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
 
 angular.extend($scope, {
                 center: {
-                    lat: return latitude, 
+                    lat: function() { this.print(this.latitude); }, 
                     lng: -0.1008511,
                     zoom: 15
                 },

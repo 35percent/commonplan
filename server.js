@@ -55,11 +55,12 @@ function handleError(res, reason, message, code) {
 *    res.send(latd);
 *});
 */
+var configdata = [
+              {"latd": (process.env.LATITUDE), "longd": (process.env.LONGITUDE)}
+              ];
 
 app.get("/configvars", function(req, res) {
-     var latd = (process.env.LATITUDE)
-     var longd = (process.env.LONGITUDE)
-     res.send({(latd), (longd)})
+     res.send(configdata)
 });
 
 

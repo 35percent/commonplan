@@ -99,11 +99,10 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         var latitude = (configvars.data[0].latd);
         console.log(latitude);
 
-             angular.forEach($scope.configvars, function(configvar, i) {
 angular.extend($scope, {
                 center: {
-                    lat: configvar.latd, 
-                    lng: configvar.longd,
+                    lat: 51.48801, 
+                    lng: -0.1008511,
                     zoom: 15
                 },
                 layers: {
@@ -138,7 +137,6 @@ angular.extend($scope, {
                     message: "<popup contact='contacts[" + i + "]'></popup>" 
                 });
             });     
-    })
     })
    .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {

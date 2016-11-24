@@ -96,14 +96,16 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .controller("ListController", function(configvars, contacts, $scope) {
         $scope.contacts = contacts.data;
         $scope.configvars = configvars.data;
-        $scope.coords = (configvars.data[0]);
-        console.log(coords);
+        var latitude = (configvars.data[0].lat);
+        console.log(latitude);
 
-angular.extend($scope.coords, {
-                   center: { 
-                    coords
-                      },
-                  layers: {
+angular.extend($scope, {
+                center: {
+                    lat: latitude(), 
+                    lng: -0.1008511,
+                    zoom: 15
+                },
+                layers: {
                     baselayers: {
                         mapbox_light: {
                             name: 'EWNF Boundary',

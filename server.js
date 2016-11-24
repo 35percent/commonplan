@@ -56,7 +56,7 @@ function handleError(res, reason, message, code) {
 *});
 */
 var configdata = [
-              {"lat": (process.env.lat), "lng": (process.env.lng), "zoom": (process.env.zoom)}
+              {center: {"lat": (process.env.lat), "lng": (process.env.lng), "zoom": (process.env.zoom)}}
               ];
 
 app.get("/configvars", function(req, res) {

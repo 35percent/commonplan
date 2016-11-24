@@ -57,8 +57,8 @@ function handleError(res, reason, message, code) {
 */
 
 app.get("/configvars", function(req, res) {
-     var latd = (process.env.LATITUDE)
-     res.send(latd)
+     var coords = (process.env)
+     res.send({hello: (coords)})
 });
 
 

@@ -99,7 +99,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         var coords = (configvars.data[0]);
         console.log(coords);
 
-angular.extend(latd.scope, {
+angular.extend(coords.scope, {
                    center: { 
                      lat: coords.lat,
                      lng: -0.09,

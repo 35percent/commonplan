@@ -99,7 +99,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         console.log(configvars.data);
 
 angular.extend($scope, {
-                center: {(configvars.data)},
+                center: {configvars.data},
                 layers: {
                     baselayers: {
                         mapbox_light: {

@@ -98,10 +98,15 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         $scope.configvars = configvars.data;
         var latitude = (configvars.data[0].latd);
         console.log(latitude);
-
+var setcenter = { center: {
+                        lat: 51.7,
+                        lng: -0.08,
+                        zoom: 15
+                    }
+};
 angular.extend($scope, {
                 center: {
-                    lat: ENV.latitude, 
+                    lat: 51.5, 
                     lng: -0.1008511,
                     zoom: 15
                 },
@@ -127,6 +132,7 @@ angular.extend($scope, {
                 scrollWheelZoom: false
         }
      });
+angular.extend($scope['center'], setcenter);
 
              $scope.markers = new Array();
              angular.forEach($scope.contacts, function(contact, i) {

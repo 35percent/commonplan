@@ -98,33 +98,31 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         $scope.configvars = configvars.data;
         var coords = (configvars.data[0]);
         console.log(coords);
+        $scope.coords = coords;
 
-                $scope.center: {
-                    $scope.lat: 51.48812, 
-                    $scope.lng: -0.1008511,
-                    $scope.zoom: 15
-                },
-                $scope.layers: {
-                    $scope.baselayers: {
-                        $scope.mapbox_light: {
-                            $scope.name: 'EWNF Boundary',
-                            $scope.url: 'https://api.mapbox.com/styles/v1/commonplan/civobzeva00442ko4gqzy0gq0/tiles/256/{z}/{x}/{y}?access_token={apikey}',
-                            $scope.type: 'xyz',
-                            $scope.layerOptions: {
-                                $scope.apikey: 'pk.eyJ1IjoiY29tbW9ucGxhbiIsImEiOiJjaXZvNHpsemcwMDB6MnRrd3kwYXBnN2NsIn0.Lqx-zAhA3p9N1XV3jV7Dog',
-                                $scope.mapid: 'commonplan.civo5q8zk00122np8fv6bdtm8-606p3'
+angular.extend($scope, {
+                layers: {
+                    baselayers: {
+                        mapbox_light: {
+                            name: 'EWNF Boundary',
+                            url: 'https://api.mapbox.com/styles/v1/commonplan/civobzeva00442ko4gqzy0gq0/tiles/256/{z}/{x}/{y}?access_token={apikey}',
+                            type: 'xyz',
+                            layerOptions: {
+                                apikey: 'pk.eyJ1IjoiY29tbW9ucGxhbiIsImEiOiJjaXZvNHpsemcwMDB6MnRrd3kwYXBnN2NsIn0.Lqx-zAhA3p9N1XV3jV7Dog',
+                                mapid: 'commonplan.civo5q8zk00122np8fv6bdtm8-606p3'
                             }
                         },
-                        $scope.osm: {
-                            $scope.name: 'General Map',
-                            $scope.url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                            $scope.type: 'xyz'
+                        osm: {
+                            name: 'General Map',
+                            url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                            type: 'xyz'
                         }
                     }
                 },
-                $scope.defaults: {
-                $scope.scrollWheelZoom: false
-        };
+                defaults: {
+                scrollWheelZoom: false
+        }
+     });
 
              $scope.markers = new Array();
              angular.forEach($scope.contacts, function(contact, i) {

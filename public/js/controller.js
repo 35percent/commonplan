@@ -101,8 +101,9 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         $scope.coords = coords;
       
 angular.extend($scope, { 
-                return this.coords;
-                },
+                get coords() {
+        return coords;
+        },
                 layers: {
                     baselayers: {
                         mapbox_light: {

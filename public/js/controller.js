@@ -96,7 +96,7 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
     .controller("ListController", function(configvars, contacts, $scope) {
         $scope.contacts = contacts.data;
         $scope.configvars = configvars.data;
-        var coords = "{lat: 51.5, lng: -0.09, zoom: 15}";
+        var coords = "lat: 51.5, lng: -0.09, zoom: 15";
         console.log(coords);
         $scope.coords = coords;
 

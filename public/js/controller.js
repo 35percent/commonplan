@@ -101,10 +101,8 @@ angular.module("contactsApp", ['ngRoute', 'leaflet-directive'])
         $scope.coords = coords;
       
 angular.extend($scope, { 
-                get coords() {
-        return coords;
-        },
-                layers: {
+                [coords],
+                 layers: {
                     baselayers: {
                         mapbox_light: {
                             name: 'EWNF Boundary',

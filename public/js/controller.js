@@ -103,7 +103,7 @@ var setcenter = (configvars.data[0]);
 
 angular.extend($scope, {
                 center: {
-                    lat: 51.95, 
+                    lat: 51.48884, 
                     lng: -0.1008511,
                     zoom: 15
                 },
@@ -129,7 +129,7 @@ angular.extend($scope, {
                 scrollWheelZoom: false
         }
      });
-angular.extend($scope['center'], setcenter);
+// angular.extend($scope['center'], setcenter);
 
              $scope.markers = new Array();
              angular.forEach($scope.contacts, function(contact, i) {
